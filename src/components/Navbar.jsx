@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSearch, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 
@@ -6,7 +5,7 @@ import { faUser, faSearch, faBagShopping } from '@fortawesome/free-solid-svg-ico
 function Navbar() {
     return (
         <>
-            <div className='container w-[100%] flex justify-between bg-[#e3ddd8]'>
+            <div className='container w-[100%] flex justify-between bg-[#e3ddd8] fixed max-sm:bg-white'>
                 <div className='flex list-none'>
                     <li className='max-sm:border-0 max-sm:px-2 text-2xl py-[10px] px-10 border-r-[1px] border-black logo'>HiShoes</li>
                     <li className='max-sm:hidden listStyle border-r-[1px] border-black'>Shop All</li>
