@@ -9,28 +9,15 @@
 
 
 }
-/* body{
-  background: #e3ddd8;
-} */
+body{
+  background-color: rgb(238, 232, 232);
+}
+.leftList{
+  @apply hidden 2xl:block  py-4 px-10
+}
 
 *{
   font-family: "Kanit", sans-serif;
   font-weight: 400;
   font-style: normal
-}
-.listStyle{
-  @apply px-10 py-3 text-lg max-sm:hidden ;
-  font-family: "Kanit", sans-serif;
-  font-weight: 400;
-  font-style: normal
-}
-.rightList{
-  @apply px-7 py-3 text-lg max-sm:px-4 max-sm:justify-evenly;
-  font-family: "Kanit", sans-serif;
-  font-weight: 400;
-  font-style: normal
-}
-.c{
-  transform: scale(1);
-  transition: .5s ease-in-;
 }
