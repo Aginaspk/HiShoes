@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTape, faGenderless } from '@fortawesome/free-solid-svg-icons'
-import nike from '../images/tori.png'
+import nike from '../images/puma.avif'
 function Mainhome() {
 
 
@@ -17,7 +17,7 @@ function Mainhome() {
 
             <div className='mb-5 '>
                 <div className='flex flex-col relative 2xl:static 2xl:flex-row '>
-                    <div className='w-full h-[60vh] absolute z-20 top-20 2xl:static 2xl:w-1/2 2xl:h-[90vh] 2xl:bg-[#f6f6f6] 2xl:z-0 '>
+                    <div className='w-full h-[60vh] absolute z-20 top-20 2xl:static 2xl:w-1/2 2xl:h-[90vh] 2xl:bg-[#ffffff] 2xl:z-0 '>
                         <div className='2xl:w-[500px] 2xl:mt-64'>
                             <div className='w-full 2xl:ml-28'>
                                 <h1 className='h1 text-4xl text-center'>Nike Court Vision Low Next Nature</h1>
@@ -35,8 +35,8 @@ function Mainhome() {
                             <button className='bg-[#eee8e8] rounded-lg py-5 px-20 '>Details</button>
                         </div>
                     </div>
-                    <div className='w-full h-[60vh] z-10 2xl:static 2xl:w-1/2 2xl:h-[90vh] bg-[#f6f6f6] flex justify-center'>
-                        <img src={nike} alt="" className='h-[95%] w-[95%] object-contain mt-24 overflow-hidden' />
+                    <div className='w-full h-[60vh] z-10 2xl:static 2xl:w-1/2 2xl:h-[90vh] bg-[#ffffff] flex justify-center overflow-hidden'>
+                        <img src={nike} alt="" className='h-full w-full object-cover mt-24' />
                     </div>
                 </div>
             </div>
