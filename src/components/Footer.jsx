@@ -2,7 +2,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-function Social() {
+
+function Footer() {
     return (
         <>
             <div className='flex flex-col justify-between 2xl:flex-row bg-[#f6f6f6]'>
@@ -38,8 +39,7 @@ function Social() {
                     </div>
                 </div>
             </div>
-        </>
-    )
+        </>)
 }
 
-export default Social
+export const Footers = React.memo(Footer);

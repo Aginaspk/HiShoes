@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSearch, faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 
 
 function Navbar() {
@@ -32,4 +33,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export const Navbars = React.memo(Navbar);

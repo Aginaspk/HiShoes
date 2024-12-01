@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import nike from '../images/nike.png'
+import { Link } from 'react-router-dom';
 
 function Categoryshop() {
     return (
@@ -12,14 +12,22 @@ function Categoryshop() {
                 </div>
                 <div className='w-full 2xl:flex 2xl:justify-between'>
                     <div className='w-full h-[50vh] relative text-lg mb-2 2xl:w-2/5  2xl:h-[70vh] 2xl:ml-14 rounded-sm'>
-                        <h1 className=' absolute top-5 left-5 font-semibold'>For him</h1>
+                        <h1 className=' absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-semibold text-3xl hover:scale-125 transition-[1s] duration-500'>For him</h1>
+
+
+                        <Link to={`/shoes?gender=Male`}>
                         <h1 className=' absolute bottom-5 right-5 hover:scale-110 transition-[1s] duration-500'>View more<FontAwesomeIcon className='pl-2' icon={faArrowRight} /></h1>
-                        <img src={nike} alt="" className='w-full h-full object-cover' />
+
+                        </Link>
+
+
+                        <img src='https://ludic.life/cdn/shop/files/1_12b50717-5cf8-4501-b9cf-08d2c307c0bb.jpg?v=1711691354%20w' alt="" className='w-full h-full object-cover' />
                     </div>
                     <div className='w-full h-[50vh] relative text-lg 2xl:w-2/5 2xl:h-[70vh] 2xl:mr-14 rounded-sm'>
-                        <h1 className=' absolute top-5 left-5 font-semibold'>For her</h1>
-                        <h1 className=' absolute bottom-5 right-5 hover:scale-110 transition-[1s] duration-500'>View more<FontAwesomeIcon className='pl-2' icon={faArrowRight}  /></h1>
-                        <img src={nike} alt="" className='w-full h-full object-cover'/>
+                        <h1 className=' absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-semibold text-3xl hover:scale-125 transition-[1s] duration-500'>For her</h1>
+                        <h1 className=' absolute bottom-5 right-5 hover:scale-110 transition-[1s] duration-500'>View more<FontAwesomeIcon className='pl-2' icon={faArrowRight} /></h1>
+
+                        <img src='https://ludic.life/cdn/shop/files/2_c4822769-5545-46ec-851e-dc7a13671f85.jpg?v=1711691353%20w' alt="" className='w-full h-full object-cover' />
                     </div>
                 </div>
             </div>
@@ -27,4 +35,4 @@ function Categoryshop() {
     )
 }
 
-export default Categoryshop
+export const Categoryshops = React.memo(Categoryshop);

@@ -1,10 +1,12 @@
-import Mainhome from "./components/Mainhome"
-import Navbar from "./components/Navbar"
-import Bestsellers from "./components/Bestsellers"
-import Categoryshop from "./components/Categoryshop"
-import Social from "./components/Social"
+import { Footers } from './components/Footer.jsx';
+import { Navbars } from './components/Navbar.jsx';
 import api from './api/get.js'
 import { useEffect, useState } from "react"
+import { Outlet } from 'react-router-dom';
+
+import { createContext } from 'react';
+
+export const AppContext = createContext();
 function App() {
   const [shoes, setShoes] = useState([]);
   useEffect(() => {
@@ -19,15 +21,17 @@ function App() {
       }
     }
     getShoes();
-  },[])
+  }, [])
 
   return (
     <>
-      <Navbar shoes={shoes} />
-      <Mainhome shoes={shoes} />
-      <Bestsellers shoes={shoes} />
-      <Categoryshop shoes={shoes} />
-      <Social shoes={shoes} />
+      <AppContext.Provider value={shoes}>
+
+        <Navbars />
+        <Outlet />
+        <Footers />
+      </AppContext.Provider>
+
 
 
     </>

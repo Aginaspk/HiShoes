@@ -1,10 +1,11 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 
-function Bestsellers({shoes}) {
-    
+function Bestsellers({ shoes }) {
+    const bestSeller = shoes.filter((item) => (item.id <= 5));
     return (
         <>
             <div className='mb-5'>
@@ -15,17 +16,22 @@ function Bestsellers({shoes}) {
                 <div className='flex flex-col items-center'>
 
                     <div className='grid grid-cols-1 gap-10  2xl:grid-cols-5 '>
-                        {shoes.map((item,index) => {
-                            return (<div key={index} className='hover:scale-110 transition-[1s] duration-500'>
+                        {bestSeller.map((item, index) => {
+                            return (<Link to={`/shoes/${item.name}`}>
 
-                                <div className='bg-[#f6f6f6] h-[350px] w-[350px] 2xl:h-[250px] 2xl:w-[250px] rounded-sm '>
-                                    <img src={item.url} alt="" className='w-full h-full object-cover rounded-sm bg-[#f6f6f6]' />
+                                <div key={index} className='hover:scale-110 transition-[1s] duration-500'>
+
+                                    <div className='bg-[#f6f6f6] h-[350px] w-[350px] 2xl:h-[250px] 2xl:w-[250px] rounded-sm '>
+                                        <img src={item.url} alt="" className='w-full h-full object-cover rounded-sm bg-[#f6f6f6]' />
+                                    </div>
+                                    <p>{item.shortName} ({item.gender})</p>
+                                    <h1 className='h1 font-semibold'>{item.price}</h1>
                                 </div>
-                                <p>{item.shortName} ({item.gender})</p>
-                                <h1 className='h1 font-semibold'>{item.price}</h1>
-                                </div>
-                            )
-                        })}
+
+                            </Link>
+
+
+                            )})}
 
                     </div>
                 </div>
@@ -36,4 +42,4 @@ function Bestsellers({shoes}) {
     )
 }
 
-export default Bestsellers
+export const Bestsellerss = React.memo(Bestsellers);
