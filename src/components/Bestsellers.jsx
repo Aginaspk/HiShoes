@@ -17,7 +17,7 @@ function Bestsellers({ shoes }) {
 
                     <div className='grid grid-cols-1 gap-10  2xl:grid-cols-5 '>
                         {bestSeller.map((item, index) => {
-                            return (<Link to={`/shoes/${item.name}`}>
+                            return (<Link to={`/viewshoe/${item.name}`}>
 
                                 <div key={index} className='hover:scale-110 transition-[1s] duration-500'>
 

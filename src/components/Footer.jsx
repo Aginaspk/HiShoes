@@ -6,8 +6,8 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 function Footer() {
     return (
         <>
-            <div className='flex flex-col justify-between 2xl:flex-row bg-[#f6f6f6]'>
-                <div className='w-full pt-5 flex  items-center px-4 justify-between border-b-2 border-black pb-5 2xl:flex-row-reverse 2xl:justify-end 2xl:pt-3 2xl:w-1/2'>
+            <div className='flex flex-col justify-between 2xl:flex-row w-full bg-[#d6d1d1] bg-opacity-50'>
+                <div className='w-full pt-5 flex  items-center px-4 justify-between border-b-2 2xl:border-b-0 border-black pb-5 2xl:flex-row-reverse 2xl:justify-end 2xl:pt-3 2xl:w-1/2'>
 
                     <div className=''>
                         <h1 className='text-xl text-left'>FIND US <br /> ON INSTAGRAM</h1>

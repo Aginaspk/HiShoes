@@ -10,14 +10,21 @@
 
 }
 body{
-  background-color: rgb(238, 232, 232);
+  background-color: #f2f2f1;
 }
 .leftList{
-  @apply hidden 2xl:block  py-4 px-10
+  @apply hidden 2xl:block  py-4 px-10 cursor-pointer;
 }
 
 *{
   font-family: "Kanit", sans-serif;
   font-weight: 400;
   font-style: normal
+}
+
+.boxShadow{
+  @apply shadow-[rgba(99,99,99,0.2)_0px_2px_8px_0px];}
+
+.shoeGrid{
+  @apply w-[50px] h-[50px] bg-black mt-2 ;
 }

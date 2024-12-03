@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
         element:<ShoesList/>
       },
       {
-        path:'/shoes/:id',
+        path:'/viewshoe/:id',
         element:<Shoe/>
       }
       
