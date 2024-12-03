@@ -9,11 +9,12 @@ function App() {
 
   return (
     <>
-        <Navbars />
+        {/* <Navbars />
           <Outlet />
           
-          
-        <Footers/>
+
+        <Footers/> */}
+        <Shoe/>
 
     </>
   )
