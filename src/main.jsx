@@ -19,13 +19,14 @@ const routes = createBrowserRouter([
       {
         path:'/shoes',
         element:<ShoesList/>
-      },
-      {
-        path:'/viewshoe/:id',
-        element:<Shoe/>
       }
       
+      
     ]
+  },
+  {
+    path:'/viewshoe/:id',
+    element:<Shoe/>
   }
 ])
 

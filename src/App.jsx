@@ -10,8 +10,9 @@ function App() {
   return (
     <>
         <Navbars />
-          {/* <Outlet /> */}
-          <Shoe/>
+          <Outlet />
+          
+          
         <Footers/>
 
     </>
