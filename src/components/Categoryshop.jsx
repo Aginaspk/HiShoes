@@ -10,6 +10,7 @@ function Categoryshop() {
     const Navigate = useNavigate();
     const naviagteToCategory = ( value, category)=>{
         Navigate('/shoes',{state:{value,category}});
+
     }
     return (
         <>

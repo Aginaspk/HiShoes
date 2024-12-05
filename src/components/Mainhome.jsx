@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTape, faGenderless } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+
 function Mainhome({ shoes }) {
 
 
@@ -15,7 +16,7 @@ function Mainhome({ shoes }) {
         <>
             {lastShoe.map((item, index) => (
 
-                <Link key={index} to={`/viewshoe/:${item.name}`} className=' cursor-default'>
+                <Link key={index} to={`/viewshoe/${item.id}`} className=' cursor-default'>
 
                     <div className='mb-5 '>
                         <div className='flex flex-col relative 2xl:static 2xl:flex-row '>
@@ -33,14 +34,14 @@ function Mainhome({ shoes }) {
                                     <p>{item.sizes}</p>
 
                                 </div>
-                                <Link to={`/viewshoe/:${item.name}`}>
+                                <Link to={`/viewshoe/${item.id}`}>
                                     <div className='text-xl mt-52 ml-24 2xl:ml-72 2xl:mt-10 hidden 2xl:block'>
                                         <button className='bg-[#eee8e8] rounded-lg py-5 px-20 '>Details</button>
                                     </div>
                                 </Link>
                             </div>
                             <div className='w-full h-[60vh] z-10 2xl:static 2xl:w-1/2 2xl:h-[90vh] bg-[#f9f9f9] flex justify-center overflow-hidden'>
-                                <img src={item.url} alt="" className='h-full w-full object-cover mt-28 2xl:mt-10' />
+                                <img src={item.imgurl1} alt="" className='h-full w-full object-cover mt-28 2xl:mt-10' />
                             </div>
                         </div>
                     </div>

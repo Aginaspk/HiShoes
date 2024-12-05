@@ -6,8 +6,11 @@ import useFetchShoes from '../customhooks/useFetchShoes'
 function Home() {
     const { data: shoes, loading, error } = useFetchShoes('Shoes')
 
+
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
+    
     return (
         <>
             <Mainhomes shoes={shoes} />

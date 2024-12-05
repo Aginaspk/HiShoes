@@ -26,5 +26,18 @@ body{
   @apply shadow-[rgba(99,99,99,0.2)_0px_2px_8px_0px];}
 
 .shoeGrid{
-  @apply w-[50px] h-[50px] bg-black mt-2 ;
+  @apply 2xl:w-[100px] 2xl:h-[100px] h-[50px] w-[50px] mt-2 ;
+}
+.inputStyle{
+  @apply px-[15px] py-2 outline-none flex-grow w-full bg-transparent border-b border-black text-black placeholder:text-black/60;
+}
+.main-container{
+  @apply bg-[url("https://images.pexels.com/photos/10003524/pexels-photo-10003524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")] h-screen w-full bg-no-repeat bg-cover bg-center;
+}
+
+.registerInputStyle{
+  @apply px-[15px] py-2 outline-none flex-grow w-full bg-transparent border-b border-black text-black placeholder:text-black/60;
+}
+.registerMain-container{
+  @apply bg-[url("https://images.pexels.com/photos/10003524/pexels-photo-10003524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")] h-screen w-full bg-no-repeat bg-cover bg-center;
 }

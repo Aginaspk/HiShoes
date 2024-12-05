@@ -8,15 +8,13 @@ function App() {
 
 
   return (
-    <>
-        {/* <Navbars />
+    // <div className='h-screen flex flex-col justify-between'>
+        <><Navbars />
           <Outlet />
-          
+        <Footers/>
+        </>
 
-        <Footers/> */}
-        <Shoe/>
-
-    </>
+    // </div>
   )
 }
 
