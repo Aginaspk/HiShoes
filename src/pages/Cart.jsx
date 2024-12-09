@@ -102,7 +102,6 @@ function Cart() {
         api.post(`orders`, order)
             .then(response => {
                 console.log(response)
-                alert("Order placed");
                 const updatedCart = [];
                 setCartItems(updatedCart);
                 api.patch(`users/${userData.id}`, {
@@ -114,7 +113,8 @@ function Cart() {
             .catch(err => {
                 console.error(err);
             });
-            navigate('/')
+            navigate('/payment',{state:{order}});
+
 
     }
 

@@ -12,6 +12,7 @@ import User from './pages/User.jsx'
 import Admin from './pages/Admin.jsx'
 import Cart from './pages/Cart.jsx'
 import Orders from './pages/Orders.jsx'
+import PaymentSection from './pages/PaymentSection.jsx'
 
 
 const routes = createBrowserRouter([
@@ -58,6 +59,10 @@ const routes = createBrowserRouter([
   {
     path:'/login',
     element:<Login/>
+  },
+  {
+    path:'/payment',
+    element:<PaymentSection/>
   }
 ])
 
