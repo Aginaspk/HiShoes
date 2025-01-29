@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import usePostData from "../customhooks/usePostData";
 import api from '../api/get'
-import Shoe from "./Shoe";
 const Register = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -42,7 +41,7 @@ const Register = () => {
     setIsSubmit(!isSubmit)
     console.log(response);
     alert("Registered successfully")
-    Navigate('/login')
+    navigate('/login',{ replace: true })
     
 
 

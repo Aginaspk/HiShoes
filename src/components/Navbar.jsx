@@ -2,11 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faSearch, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Login from '../pages/Login'
 
 
 
 
 function Navbar() {
+
+    const user = JSON.parse(localStorage.getItem('loginUser'))
 
     const Navigate = useNavigate();
     const [serachInput, setSearchInput] = useState('');
@@ -38,6 +41,14 @@ function Navbar() {
             Navigate('login');
         }
     }
+    const isLoginCart = () =>{
+        const user = localStorage.getItem('loginUser');
+        if(user){
+            Navigate('/cart')
+        }else{
+            Navigate('login');
+        }
+    }
     return (
         <>
             <div className='w-full flex justify-between fixed z-30 bg-[#d6d1d1] bg-opacity-50'>
@@ -57,14 +68,14 @@ function Navbar() {
 
                     <div className='flex py-[15px] mr-3 cursor-pointer' onClick={isLogin}>
                         <i><FontAwesomeIcon icon={faUser} className='px-2' /></i>
-                        <p>User</p>
+                        <p>{user ? user.role === "user" ? "User" : "Admin" : "Login"}</p>
                     </div>
 
-                    <Link to={'/cart'}>
-                    <div className='py-[15px] mr-3'>
+                    {
+                        user ? user.role === "user" ? <div className='py-[15px] mr-3 relative' onClick={isLoginCart}>
                         <i><FontAwesomeIcon icon={faBagShopping} /></i>
-                    </div>
-                    </Link>
+                    </div>:<div></div>:<div></div>
+                    }
 
 
 

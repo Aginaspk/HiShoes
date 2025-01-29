@@ -16,6 +16,7 @@ function Cart() {
 
 
     useEffect(() => {
+
         api.get(`users/${userData.id}`)
             .then(response => {
                 const user = response.data;
@@ -42,7 +43,7 @@ function Cart() {
 
     const incrementQty = (itemId) => {
         const updatedCart = cartItems.map(item =>
-            item.id === itemId ? { ...item, qty: Number(item.qty) + 1, totalPrice: Number(item.totalPrice) + Number(item.rs) } : item
+            item.id === itemId ? { ...item, qty: Number(item.qty) + 1, totalPrice: Number(item.totalPrice) + Number(item.price) } : item
         );
         setCartItems(updatedCart);
 
@@ -58,7 +59,7 @@ function Cart() {
     };
     const decrementQty = (itemId) => {
         const updatedCart = cartItems.map(item =>
-            item.id === itemId && item.qty > 1 ? { ...item, qty: Number(item.qty) - 1, totalPrice: Number(item.totalPrice) - Number(item.rs) } : item
+            item.id === itemId && item.qty > 1 ? { ...item, qty: Number(item.qty) - 1, totalPrice: Number(item.totalPrice) - Number(item.price) } : item
         );
         setCartItems(updatedCart);
 
@@ -86,6 +87,7 @@ function Cart() {
             navigate('/')
             return; 
         }
+    
 
 
         const order = {
@@ -104,6 +106,7 @@ function Cart() {
                 console.log(response)
                 const updatedCart = [];
                 setCartItems(updatedCart);
+                alert("ordered completed")
                 api.patch(`users/${userData.id}`, {
                     usercart: updatedCart,
                 }).catch(err => {
@@ -113,7 +116,7 @@ function Cart() {
             .catch(err => {
                 console.error(err);
             });
-            navigate('/payment',{state:{order}});
+            // navigate('/payment',{state:{order}});
 
 
     }
@@ -124,18 +127,19 @@ function Cart() {
     if (error) return <p>{error}</p>;
 
     return (
+       
         <div className='w-full pt-16 min-h-[75vh] flex mb-2 2xl:items-start 2xl:flex-row flex-col relative'>
             <div className='mb-30 grid grid-cols-1  gap-5 2xl:w-[70%] '>
                 {cartItems.length > 0 ? (
                     cartItems.map((item, index) => {
                         return (
-                            <div key={index} className='w-full min-h-[25vh] pt-4 flex  bg-[#d6d1d1]/50 justify-between 2xl:items-center 2xl:static relative'>
+                            <div key={index} className='w-full min-h-[25vh] py-4 flex  bg-[#d6d1d1]/50 justify-between 2xl:items-center 2xl:static relative'>
                                 <div className='2xl:flex flex'>
                                     <div className='w-[150px] h-[150px] ml-4'><img src={item.imgurl1} alt="" className='w-full h-full object-cover' /></div>
 
                                     <div className='ml-5'>
                                         <h1 className='text-2xl py-1'>{item.shortName}</h1>
-                                        <h1 className='text-2xl py-1'>{item.price}</h1>
+                                        <h1 className='text-2xl py-1'>₹{item.price}.00</h1>
                                         <div className='flex  justify-between items-center py-3'>
                                             <button className='w-7 h-7  bg-black text-white ' onClick={() => decrementQty(item.id)} >-</button>
                                             <p className='text-2xl'>{item.qty}</p>
@@ -150,7 +154,7 @@ function Cart() {
                     })
                 ) : <h1 className='text-center text-2xl'>Your Cart is Empty</h1>}
             </div>
-            <div className=' 2xl:w-[25%] h-auto px-5 bg-[#d6d1d1] 2xl:ml-10 mx-2 2xl:mx-0 my-3 2xl:my-0'>
+            <div className=' 2xl:w-[25%] h-auto px-5 bg-[#d6d1d1]/50 2xl:ml-10 mx-2 2xl:mx-0 my-3 2xl:my-0'>
                 {cartItems.length > 0 ?
                     (cartItems.map((item, index) => {
                         return (
@@ -164,7 +168,7 @@ function Cart() {
                 <div className='py-3 flex justify-between'>
                     <h1>Total Amount</h1>
                     <h1>₹ {cartItems.reduce((a, item) => {
-                        const price = Number(item.rs)
+                        const price = Number(item.price)
                         const qty = Number(item.qty)
                         return a + price * qty;
 
@@ -172,7 +176,7 @@ function Cart() {
                 </div>
             </div>
             {cartItems.length > 0 ? (
-                <div className='w-full absolute bg-[#d6d1d1] h-[15vh] bottom-0 flex 2xl:justify-end justify-center items-center '>
+                <div className='w-full absolute bg-[#d6d1d1]/50 h-[15vh] bottom-0 flex 2xl:justify-end justify-center items-center '>
                 <div className='w-60 h-20 rounded-2xl bg-black text-white flex text-2xl justify-center items-center cursor-pointer' onClick={placeOrder}>Place Oder</div>
                 <div className='2xl:ml-24'></div>
             </div>

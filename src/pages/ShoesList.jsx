@@ -28,7 +28,7 @@ function ShoesList() {
                   <img src={item.imgurl1} alt="" className='w-full h-full object-cover rounded-sm bg-[#f6f6f6]' />
                 </div>
                 <p>{item.shortName} ({item.gender})</p>
-                <h1 className='h1 font-semibold'>{item.price}</h1>
+                <h1 className='h1 font-semibold'>₹{item.price}.00</h1>
               </div>
 
             </Link>

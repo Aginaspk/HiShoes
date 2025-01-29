@@ -31,15 +31,17 @@ const Login = () => {
     try {
       const Response = await api.get("/users");
       const data = Response.data;
+      console.log(Response.data);
+      
       const user = data.find((users) => users.email===userDetails.email && users.password === userDetails.password )
-      if (user) {
+      if (user && !user.isBlocked) {
         alert("login successful")
         localStorage.setItem('loginUser', JSON.stringify(user));
-        navigate("/")
+        navigate("/",{ replace: true })
         console.log(user);
         
       }else{
-        alert("invalid username or password");
+        alert("invalid username or password or your account is blocked");
         console.log(user);
         navigate('/register')
       }

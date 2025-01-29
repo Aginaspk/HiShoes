@@ -8,10 +8,11 @@ function User() {
     const logoutUser = () => {
         localStorage.clear();
         alert("Logout Succesfully")
-        navigate('/');
+        navigate('/', { replace: true });
     }
     return (
         <div className='pt-16'>
+        
             <div className='p-10'>
                 <div className='grid grid-cols-2 gap-10'>
                     <Link to={'/orders'}>

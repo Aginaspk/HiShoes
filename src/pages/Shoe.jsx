@@ -13,13 +13,16 @@ function Shoe() {
   const { data: shoe, loading, error } = useFetchShoes(`Shoes?id=${id}`)
   const [currentShoe, setCurrentShoe] = useState('imgurl1');
 
+
   const user = localStorage.getItem('loginUser');
   const userData = JSON.parse(user);
 
 
 
   useEffect(() => {
-    api.get(`users/${userData.id}`)
+
+    if(user !== null){
+      api.get(`users/${userData.id}`)
       .then(response => {
         const user = response.data;
         console.log(response.data)
@@ -29,7 +32,8 @@ function Shoe() {
         console.log(err);
 
       });
-  }, [userData.id]);
+    }
+  }, []);
 
   const changeShoe = (shoeUrl) => {
     setCurrentShoe(shoeUrl);
@@ -38,28 +42,34 @@ function Shoe() {
 
 
   const addToCart = () => {
+    if(user === null){
+      alert("please Login")
+      navigate('/login')
+    }else{
+      const isAlreadyInCart = cartItems.some(item => item.id === shoe[0].id);
 
-    const isAlreadyInCart = cartItems.some(item => item.id === shoe[0].id);
 
-
-    if (!isAlreadyInCart) {
-      const updatedCart = [...cartItems, {...shoe[0],qty:1}];
-  
-      api.patch(`users/${userData.id}`, {
-        usercart: updatedCart
-      })
-        .then(response => {
-          console.log(response.data);
-          setCartItems(updatedCart); 
-          alert("One item added to cart");
-          navigate('/');
+      if (!isAlreadyInCart) {
+        const updatedCart = [...cartItems, {...shoe[0],qty:1}];
+    
+        api.patch(`users/${userData.id}`, {
+          usercart: updatedCart
         })
-        .catch(err => {
-          console.error(err);
-        });
-    } else {
-      alert("This item is already in the cart");
+          .then(response => {
+            console.log(response.data);
+            setCartItems(updatedCart); 
+            alert("One item added to cart");
+            navigate('/');
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      } else {
+        alert("This item is already in the cart");
+      }
     }
+
+
   };
 
   if (loading) return <p>Loading...</p>
@@ -87,7 +97,7 @@ function Shoe() {
         </div>
         <div className='2xl:pt-24 2xl:pl-12 2xl:flex 2xl:flex-col 2xl:justify-evenly'>
           <div className='px-3 '>
-            <h1 className='text-3xl mb-2 2xl:mb-5'>{shoe[0].price}</h1>
+            <h1 className='text-3xl mb-2 2xl:mb-5'>₹{shoe[0].price}.00</h1>
             <div className='flex mb-2'>
               <h1 className='text-2xl mr-7 2xl:mb-5'><FontAwesomeIcon className='pr-2' icon={faGenderless} />{shoe[0].gender}</h1>
               <h1 className='text-2xl 2xl:mb-5'><FontAwesomeIcon className='pr-2' icon={faTape} />{shoe[0].sizes}</h1>

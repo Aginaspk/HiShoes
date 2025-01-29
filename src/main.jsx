@@ -13,6 +13,11 @@ import Admin from './pages/Admin.jsx'
 import Cart from './pages/Cart.jsx'
 import Orders from './pages/Orders.jsx'
 import PaymentSection from './pages/PaymentSection.jsx'
+import AddProduct from './pages/AddProduct.jsx'
+import UpdateProduct from './pages/UpdateProduct.jsx'
+import UsersList from './pages/UsersList.jsx'
+import ViewOrders from './pages/ViewOrders.jsx'
+import ProtectedRoutes from './util/ProtectedRoutes.jsx'
 
 
 const routes = createBrowserRouter([
@@ -27,10 +32,6 @@ const routes = createBrowserRouter([
       {
         path:'/shoes',
         element:<ShoesList/>
-      },
-      {
-        path:'/admin',
-        element:<Admin/>
       },
       {
         path:'/user',
@@ -63,7 +64,35 @@ const routes = createBrowserRouter([
   {
     path:'/payment',
     element:<PaymentSection/>
+  },
+  {
+    element:<ProtectedRoutes/>,
+    children:[
+      {
+        path:'/admin',
+        element:<Admin/>
+      },
+      {
+        path:'/addProduct',
+        element:<AddProduct/>
+      },
+      {
+        path:'/updateProduct/:id',
+        element:<UpdateProduct/>
+      },
+      {
+        path:'/users',
+        element:<UsersList/>
+      },
+      {
+        path:'vieworders',
+        element:<ViewOrders/>
+      },
+
+    ]
   }
+  
+
 ])
 
 createRoot(document.getElementById('root')).render(
